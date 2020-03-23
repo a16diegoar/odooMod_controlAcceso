@@ -6,17 +6,17 @@
         Control de acceso""",
 
     'description': """
-        Módulo con mecanismos que permiten registrar y controlar el uso de 
+        Módulo con mecanismos que permiten registrar y controlar el uso de salas por parte del personal
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Diego Antelo Rútolo",
+    'website': "http://rutolo.eu",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.1',
+    'version': '12.0.1',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
