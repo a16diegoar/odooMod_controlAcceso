@@ -2,14 +2,28 @@
 
 from odoo import models, fields, api
 
-# class control_acceso(models.Model):
-#     _name = 'control_acceso.control_acceso'
+class Sala(models.Model):
+	_name = 'acceso.sala'
+	_description = 'Sala'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+	name = fields.Char('Nombre')
+	number = fields.Integer('Numero')
+	descr = fields.Text("Descipción")
+
+	accesos_ids = fields.Many2many('acceso.regla', string="Accesos")
+
+
+class GrupoAcceso(models.Model):
+	_inherit = 'res.groups'
+
+	_name = 'acceso.grupo'
+
+
+class Regla(models.Model):
+	_name = 'acceso.regla'
+
+	name = fields.Char("Regla")
+	description = fields.Text("Descripcion")
+
+	salas = fields.Many2many('acceso.sala')
+	

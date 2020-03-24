@@ -1,30 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <!--  -->
-        <!--   <record id="object0" model="control_acceso.control_acceso"> -->
-        <!--     <field name="name">Object 0</field> -->
-        <!--     <field name="value">0</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object1" model="control_acceso.control_acceso"> -->
-        <!--     <field name="name">Object 1</field> -->
-        <!--     <field name="value">10</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object2" model="control_acceso.control_acceso"> -->
-        <!--     <field name="name">Object 2</field> -->
-        <!--     <field name="value">20</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object3" model="control_acceso.control_acceso"> -->
-        <!--     <field name="name">Object 3</field> -->
-        <!--     <field name="value">30</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object4" model="control_acceso.control_acceso"> -->
-        <!--     <field name="name">Object 4</field> -->
-        <!--     <field name="value">40</field> -->
-        <!--   </record> -->
-        <!--  -->
-    </data>
+    <!-- Salas -->
+    <record model="acceso.sala" id="sala0">
+        <field name="name">Vestíbulo</field>
+        <field name="number">0</field>
+        <field name="descr">Entrada principal</field>
+    </record>
+
+    <record model="acceso.sala" id="sala1">
+        <field name="name">Conserjería</field>
+        <field name="number">1</field>
+        <field name="descr">Conserjería</field>
+    </record>
+
+    <record model="acceso.sala" id="sala2">
+        <field name="name">Secretaría</field>
+        <field name="number">2</field>
+        <field name="descr">Secretaría</field>
+    </record>
+
+    <record model="acceso.sala" id="sala3">
+        <field name="name">Baños Alumnos</field>
+        <field name="number">3</field>
+        <field name="descr">Baños de los Alumnos</field>
+    </record>
+
+    <record model="acceso.sala" id="sala4">
+        <field name="name">Baños profesores</field>
+        <field name="number">4</field>
+        <field name="descr">Baños para profesores y personal no docente</field>
+    </record>
+
+    <!-- Usuarios -->
+
+    <!-- Grupos -->
 </odoo>
