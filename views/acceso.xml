@@ -32,7 +32,7 @@
 	<!-- Grupos -->
 	<record model="ir.ui.view" id="grupo_form_view">
 		<field name="name">grupo.form</field>
-		<field name="model">acceso.grupo</field>
+		<field name="model">res.groups</field>
 		<field name="arch" type="xml">
 			<form string="Salas Form">
 				<sheet>
@@ -46,10 +46,9 @@
 		</field>
 	</record>
 
-
 	<record model="ir.actions.act_window" id="acceso_ver_grupos">
 		<field name="name">Grupos</field>
-		<field name="res_model">acceso.grupo</field>
+		<field name="res_model">res.groups</field>
 		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 		<field name="help" type="html">
@@ -58,6 +57,8 @@
 			</p>
 		</field>
 	</record>
+
+	<!-- Reglas -->
 
 	<!-- MenuItems -->
 	<menuitem id="main_acceso_menu" name="Control de Acceso" />

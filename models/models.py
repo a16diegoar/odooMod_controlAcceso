@@ -13,10 +13,10 @@ class Sala(models.Model):
 	accesos_ids = fields.Many2many('acceso.regla', string="Accesos")
 
 
-class GrupoAcceso(models.Model):
+class ResGroups(models.Model):
 	_inherit = 'res.groups'
 
-	_name = 'acceso.grupo'
+	
 
 
 class Regla(models.Model):

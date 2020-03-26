@@ -12,8 +12,7 @@ Este módulo de Odoo permite controlar y registrar el acceso de personas a difer
 
 ### Modelos
 
- * _GrupoAcceso_ hereda de _res.groups_
- * _GrupoAcceso_ contiene una lista de _res.partner_
+ * Se extiende el modelo _res.groups_
  * _Sala_ es un modelo base.
  * _Regla_ almacena los datos de acceso
 	* _GrupoAcceso_
