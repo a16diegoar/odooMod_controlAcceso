@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
 	<!-- Salas -->
 	<record model="ir.ui.view" id="sala_form_view">
 		<field name="name">sala.form</field>
@@ -29,6 +30,7 @@
 		</field>
 	</record>
 
+
 	<!-- Grupos -->
 	<record model="ir.ui.view" id="grupo_form_view">
 		<field name="name">grupo.form</field>
@@ -38,6 +40,7 @@
 				<sheet>
 					<group>
 						<field name="name" />
+						<field name="nusuarios" />
 						<field name="users" />
 						<field name="write_date" />
 					</group>
@@ -57,6 +60,7 @@
 			</p>
 		</field>
 	</record>
+
 
 	<!-- Reglas -->
 
