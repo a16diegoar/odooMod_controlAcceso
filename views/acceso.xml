@@ -24,7 +24,7 @@
 		<field name="view_mode">tree,form</field>
 		<field name="help" type="html">
 			<p class="o_view_nocontent_smiling_face">
-				Crea una sala
+				Crea una <i>Sala</i>
 			</p>
 		</field>
 	</record>
@@ -46,9 +46,22 @@
 		</field>
 	</record>
 
+
+	<record model="ir.actions.act_window" id="acceso_ver_grupos">
+		<field name="name">Grupos</field>
+		<field name="res_model">acceso.grupo</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Crea un <i>Grupo de Acceso</i>
+			</p>
+		</field>
+	</record>
+
 	<!-- MenuItems -->
 	<menuitem id="main_acceso_menu" name="Control de Acceso" />
+	<menuitem id="grupos_menu" name="Grupos" parent="main_acceso_menu" action="acceso_ver_grupos" />
 	<menuitem id="salas_menu" name="Salas" parent="main_acceso_menu" action="acceso_ver_salas" />
-	<menuitem id="grupos_menu" name="Grupos" parent="main_acceso_menu" aciton="acceso_ver_grupos />"
-
+	
 </odoo>
