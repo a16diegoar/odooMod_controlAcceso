@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+	<!-- Reglas -->
+	<record id="action_reglas_ver" model="ir.actions.act_window">
+		<field name="name">Reglas</field>
+		<field name="res_model">acceso.regla</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Crea una <i>Regla</i>
+			</p>
+		</field>
+	</record>
+
+	<record id="view_reglas_form" model="ir.ui.view" >
+		<field name="name">regla.form</field>
+		<field name="model">acceso.regla</field>
+		<field name="arch" type="xml">
+			<form string="Reglas Form">
+				<sheet>
+					<group>
+						<field name="name" />
+						<field name="descr" />
+						<field name="tipo" />
+						<field name="dia_hora_ini" />
+						<field name="dia_hora_fin" />
+					</group>
+					<notebook string="Detalles">
+						<page string="Aplicación">
+							<group>
+								<field name="group_id" />
+								<field name="sala_ids" />
+							</group>
+						</page>
+						<page string="Repeticion">
+							<group>
+								<field name="repetir" />
+								<field name="mes" />
+								<field name="dia_mes" />
+								<field name="dia_semana" />
+								<field name="hora" />
+								<field name="minuto" />
+							</group>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
 	<!-- Salas -->
 	<record id="action_salas_ver" model="ir.actions.act_window">
 		<field name="name">Salas</field>
@@ -55,10 +105,9 @@
 		</field>
 	</record>
 
-	<!-- Reglas -->
-
 	<!-- MenuItems -->
 	<menuitem id="main_acceso_menu" name="Control de Acceso" />
+	<menuitem id="reglas_menu" name="Reglas" parent="main_acceso_menu" action="action_reglas_ver" />
 	<menuitem id="grupos_menu" name="Grupos" parent="main_acceso_menu" action="action_grupos_ver" />
 	<menuitem id="salas_menu" name="Salas" parent="main_acceso_menu" action="action_salas_ver" />
 	
