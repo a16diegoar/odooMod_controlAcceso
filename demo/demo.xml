@@ -32,8 +32,67 @@
     </record>
 
     <!-- Usuarios -->
+    <record model="res.partner" id="user_anselmo">
+        <field name="name">Anselmo</field>
+    </record>
+
+    <record model="res.partner" id="user_guillermina">
+        <field name="name">Guillermina</field>
+    </record>
+
+    <record model="res.partner" id="user_juanito">
+        <field name="name">Juanito</field>
+    </record>
+
+    <record model="res.partner" id="user_mabel">
+        <field name="name">Mabel</field>
+    </record>
+
+    <record model="res.partner" id="user_pepa">
+        <field name="name">Pepa</field>
+    </record>
+
+    <record model="res.partner" id="user_rudesindo">
+        <field name="name">Rudesindo</field>
+    </record>
 
     <!-- Grupos -->
+    <!-- https://stackoverflow.com/questions/21195966/openerp-seeding-many2many-relationships-with-xml -->
+    <record model="res.groups" id="grupo_instituto">
+        <field name="name">Instituto</field>
+        <field name="users" eval="[(6, 0, [
+                ref('user_anselmo'),
+                ref('user_guillermina'),
+                ref('user_juanito'),
+                ref('user_mabel'),
+                ref('user_pepa'),
+                ref('user_rudesindo')
+            ])]" />
+    </record>
+
+    <record model="res.groups" id="grupo_alumnos">
+        <field name="name">Alumnos</field>
+        <field name="users" eval="[(6, 0, [
+                ref('user_mabel'),
+                ref('user_pepa'),
+                ref('user_rudesindo')
+            ])]" />
+    </record>
+
+    <record model="res.groups" id="grupo_limpieza">
+        <field name="name">Limpieza</field>
+        <field name="users" eval="[(6, 0, [
+                ref('user_anselmo')
+            ])]" />
+    </record>
+
+    <record model="res.groups" id="grupo_profesores">
+        <field name="name">Profesores</field>
+        <field name="users" eval="[(6, 0, [
+                ref('user_guillermina'),
+                ref('user_juanito')
+            ])]" />
+    </record>
 
     <!-- Reglas -->
 </odoo>
