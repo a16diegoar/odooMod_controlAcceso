@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+	<!-- Accesos -->
+	<record id="action_accesos_ver" model="ir.actions.act_window">
+		<field name="name">Accesos</field>
+		<field name="res_model">acceso.acceso</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Solicita <i>Acceso</i> a una sala
+			</p>
+		</field>
+	</record>
+
+	<record id="view_acceso_form" model="ir.ui.view" >
+		<field name="name">acceso.form</field>
+		<field name="model">acceso.acceso</field>
+		<field name="arch" type="xml">
+			<form string="Accesos Form">
+				<sheet>
+					<group>
+						<field name="user_id" />
+						<field name="sala_id" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
 	<!-- Reglas -->
 	<record id="action_reglas_ver" model="ir.actions.act_window">
 		<field name="name">Reglas</field>
@@ -107,6 +135,7 @@
 
 	<!-- MenuItems -->
 	<menuitem id="main_acceso_menu" name="Control de Acceso" />
+	<menuitem id="accesos_menu" name="Accesos" parent="main_acceso_menu" action="action_accesos_ver" />
 	<menuitem id="reglas_menu" name="Reglas" parent="main_acceso_menu" action="action_reglas_ver" />
 	<menuitem id="grupos_menu" name="Grupos" parent="main_acceso_menu" action="action_grupos_ver" />
 	<menuitem id="salas_menu" name="Salas" parent="main_acceso_menu" action="action_salas_ver" />

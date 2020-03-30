@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record id="view_wizard_acceso" model="ir.ui.view">
+		<field name="name">wizard_acceso.form</field>
+		<field name="model">acceso.wizard_acceso</field>
+		<field name="arch" type="xml">
+			<form string="Selecciona usuario y sala">
+				<group>
+					<field name="usuario_id" />
+					<field name="sala_id" />
+				</group>
+				<footer>
+					<button name="solicitar" type="object"
+						string="Solicitar" class="oe_highlight" />
+					<button special="cancel" string="Cancelar" />
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<act_window
+		id="launc_wizard_acceso"
+		name="Solicitar usuario"
+		src_model="acceso.sala"
+		res_model="acceso.wizard_acceso"
+		view_mode="form"
+		target="new"
+		key2="client_action_multi" />
+
+</odoo>

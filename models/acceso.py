@@ -106,3 +106,23 @@ class Regla(models.Model):
 	def _check_minuto(self):
 		if not 0 <= self.minuto <= 59:
 			raise models.ValidationError('Minuto inválido')
+
+
+class Acceso(models.Model):
+	_name = 'acceso.acceso'
+
+	name = fields.Char()
+
+	user_id = fields.Many2one('res.partner', string="Usuario", required=True)
+	sala_id = fields.Many2one('acceso.sala', stirng="Sala", required=True)
+
+	@api.model
+	def create(self, vals):
+		crear = super(Acceso, self).create(vals)
+		puede = False
+		
+
+		if not puede:
+			raise models.ValidationError('Acceso denegado')
+		else:
+			return crear

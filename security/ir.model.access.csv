@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 acl_sala,acceso.sala_default,model_acceso_sala,,1,1,1,1
 acl_grupo,res.groups_default,model_res_groups,,1,1,1,1
-acl_regla,acceso.regla_default,model_acceso_regla,"",1,1,1,1
+acl_regla,acceso.regla_default,model_acceso_regla,,1,1,1,1
+acl_acceso,acceso.acceso_default,model_acceso_acceso,"",1,1,1,1
