@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import datetime
 from odoo import models, fields, api
 
 _logger = logging.getLogger(__name__)
@@ -83,10 +84,10 @@ class Regla(models.Model):
 	dia_hora_ini = fields.Datetime("Desde", required=True)
 	dia_hora_fin = fields.Datetime("Hasta", required=False)
 	tipo = fields.Selection(tipos_reglas, required=True, string="Tipo")
-	repetir = fields.Selection(tipos_repeticiones, string="Repetir")
+	repetir = fields.Selection(tipos_repeticiones, string="Repetir", required=True, default=0)
 	
 	mes = fields.Selection(meses, required=False, string="Mes")
-	dia_mes = fields.Integer(required=False, string="Día del mes")
+	dia_mes = fields.Integer(required=False, string="Día del mes", default=1)
 	dia_semana = fields.Selection(dias_semana, required=False, string="Día de la semana")
 	hora = fields.Integer(required=False, string="Hora")
 	minuto = fields.Integer(required=False, string="Minuto")
@@ -106,6 +107,11 @@ class Regla(models.Model):
 	def _check_minuto(self):
 		if not 0 <= self.minuto <= 59:
 			raise models.ValidationError('Minuto inválido')
+	
+	def testDiaHora(self, datetime):
+		testDate = str(datetime)
+		_logger.info("BUDEBUUUG")
+		_logger.info(type(self.search([('dia_hora_ini', '<=', testDate)])))
 
 
 class Acceso(models.Model):
@@ -121,6 +127,26 @@ class Acceso(models.Model):
 		crear = super(Acceso, self).create(vals)
 		puede = False
 		
+		# Buscamos las relgas que se pueden aplicar
+		reglasAplicables = []
+		for regla in self.sala_id.regla_ids:
+			# Comprobamos el día y la hora
+			flagHora = False
+			regla.testDiaHora(datetime.datetime.now())
+
+			# Comprobamos el usuario
+			flagUser = False
+			if self.user_id.has_group(regla.group_id):
+				flagUser = True
+
+			if flagUser and flagHora:
+				reglasAplicables.append(regla)
+		
+		for regla in reglasAplicables:
+			if regla.tipo == 1:			# Si alguna regla impide el acceso no se comprueba más
+				puede = False
+				break
+			# Ahora compro
 
 		if not puede:
 			raise models.ValidationError('Acceso denegado')
